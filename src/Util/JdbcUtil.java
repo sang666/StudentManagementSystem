@@ -101,7 +101,7 @@ public class JdbcUtil {
      * 通用的查询方法。返回resultset结果集
      * @param sql ..
      * @param os
-     * @return
+     * @return..
      */
     public static ResultSet executeQuery(String sql,Object[]os){
         pstat = createPreparedStatement(sql,os);
