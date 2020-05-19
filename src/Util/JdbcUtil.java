@@ -100,7 +100,7 @@ public class JdbcUtil {
     /**
      * 通用的查询方法。返回resultset结果集
      * @param sql ..
-     * @param os
+     * @param os ..
      * @return ..
      */
     public static ResultSet executeQuery(String sql,Object[]os){
