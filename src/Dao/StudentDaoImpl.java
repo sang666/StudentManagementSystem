@@ -110,4 +110,33 @@ public class StudentDaoImpl implements IStudentDao {
         Object[] os ={sno};
         JdbcUtil.GeneralUpdate(sql,os);
     }
+
+    @Override
+    public List<Student> findStudent(String sname) {
+        //String sql = "select * from employee";
+        String sql = "select * from student where sname like ?";
+        Object[]os = {sname};
+        List<Student>students = new ArrayList<>();
+
+
+        try {
+            ResultSet rs = JdbcUtil.executeQuery(sql,os);
+            while (rs.next()) {
+                Integer Ssno = rs.getInt("sno");
+                String Ssname = rs.getString("sname");
+                String Ssex = rs.getString("sex");
+                String Sacademy = rs.getString("academy");
+                Integer Sgrade = rs.getInt("grade");
+                Integer Sphone =rs.getInt("phone") ;
+
+                Student stu = new Student(Ssno,Ssname,Ssex,Sacademy,Sgrade,Sphone);
+                students.add(stu);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+        return students;
+    }
+
 }

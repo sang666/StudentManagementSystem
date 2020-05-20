@@ -16,4 +16,6 @@ public interface IStudentDao {
     List<Student> findStudent();
 
     void delete(Integer sno);
+
+    List<Student> findStudent(String sname);
 }

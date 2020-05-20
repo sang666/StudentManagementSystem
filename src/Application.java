@@ -42,14 +42,16 @@ public class Application {
         System.out.println("|          2.修改学生信息                 |");
         System.out.println("|          3.删除学生信息                 |");
         System.out.println("|          4.查找学生信息                 |");
-        System.out.println("|          5.退出                         |");
+        System.out.println("|          5.查看所有学生                 |");
+        System.out.println("|          6.模糊查询                    |");
+        System.out.println("|          7.退出                       |");
         System.out.println("+-----------------------------------------+");
     }
 
     public static void start() {
         do {
             showMenu();
-            System.out.print("请选择操作：(1)添加  (2)修改 (3)删除 (4)查找  (5)查看所有学生  (6)退出:  ");
+            System.out.print("请选择操作：(1)添加  (2)修改 (3)删除 (4)查找  (5)查看所有学生  (6)模糊查询 (7)退出  ");
             int choose = input.nextInt();
             switch (choose){
                 case 1: //add
@@ -108,6 +110,13 @@ public class Application {
                     break;
                 case 5: //list
                     for(Student student:studentDao.findStudent()){
+                        System.out.println(student);
+                    }
+                    break;
+                case 6://模糊查询
+                    System.out.println("输入要模糊查询的内容");
+                    String sname = input.next();
+                    for(Student student:studentDao.findStudent("%"+sname+"%")){
                         System.out.println(student);
                     }
                     break;
