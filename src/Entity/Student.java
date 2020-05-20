@@ -72,13 +72,13 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "sno=" + sno +
-                ", sname='" + sname + '\'' +
-                ", sex='" + sex + '\'' +
-                ", academy='" + academy + '\'' +
-                ", grade=" + grade +
-                ", phone=" + phone +
+        return "学生信息：" +
+                "学号：" + sno +
+                ", 姓名：'" + sname + '\'' +
+                ", 性别：'" + sex + '\'' +
+                ", 学院：'" + academy + '\'' +
+                ", 班级：" + grade +
+                ", 电话：" + phone +
                 '}';
     }
 }

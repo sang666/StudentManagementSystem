@@ -95,6 +95,8 @@ public class Application {
                     break;
                 case 3: //delete
                     System.out.print("请输入学生删除的学号：");
+                    Integer deleteNo = input.nextInt();
+                    studentDao.delete(deleteNo);
 
 
                     break;

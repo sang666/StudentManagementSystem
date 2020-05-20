@@ -32,7 +32,7 @@ public class StudentDaoImpl implements IStudentDao {
 
     @Override
     public Student findByPK(Integer sno){
-        String sql = "select sno,sname,sex,academy,grade,phone from employee where sno=?";
+        String sql = "select sno,sname,sex,academy,grade,phone from student where sno=?";
         Object[]os = {sno};
         Student stu = null;
         ResultSet rs = JdbcUtil.executeQuery(sql,os);
@@ -102,5 +102,12 @@ public class StudentDaoImpl implements IStudentDao {
         }
 
         return students;
+    }
+
+    @Override
+    public void delete(Integer sno) {
+        String sql ="delete from student where sno=?";
+        Object[] os ={sno};
+        JdbcUtil.GeneralUpdate(sql,os);
     }
 }

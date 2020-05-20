@@ -14,4 +14,6 @@ public interface IStudentDao {
     boolean isExistByNo(Integer sno);
 
     List<Student> findStudent();
+
+    void delete(Integer sno);
 }
