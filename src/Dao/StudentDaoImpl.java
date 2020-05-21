@@ -139,4 +139,8 @@ public class StudentDaoImpl implements IStudentDao {
         return students;
     }
 
+    @Override
+    public int getTitalCount() {
+        return 0;
+    }
 }

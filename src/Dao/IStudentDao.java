@@ -18,4 +18,6 @@ public interface IStudentDao {
     void delete(Integer sno);
 
     List<Student> findStudent(String sname);
+
+    int getTitalCount();
 }

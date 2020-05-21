@@ -113,5 +113,27 @@ public class JdbcUtil {
         return rs;
     }
 
+    /**
+     *
+     * @param sql 执行查询的sql语句
+     * @return 返回count，即数据总数
+     */
+    public static int getTotalCount(String sql){
+        int count =-1;
+        pstat = createPreparedStatement(sql,null);
+        try {
+            rs = pstat.executeQuery();
+            if (rs.next()) {
+                count = rs.getInt(1);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            close(conn,pstat,rs);
+        }
+        return count;
+
+    }
+
 
 }
