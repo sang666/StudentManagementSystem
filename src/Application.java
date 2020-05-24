@@ -51,7 +51,7 @@ public class Application {
     public static void start() {
         do {
             showMenu();
-            System.out.print("请选择操作：(1)添加  (2)修改 (3)删除 (4)查找  (5)查看所有学生  (6)模糊查询 (7)退出  ");
+            System.out.print("请选择操作：(1)添加学生信息  (2)修改 (3)删除 (4)查找  (5)查看所有学生  (6)模糊查询 7(联合查询) (8)退出  ");
             int choose = input.nextInt();
             switch (choose){
                 case 1: //add
@@ -119,6 +119,12 @@ public class Application {
                     for(Student student:studentDao.findStudent("%"+sname+"%")){
                         System.out.println(student);
                     }
+                    break;
+                case 7://模糊查询
+                    System.out.println("输入要联合查询的学生学号");
+                    Integer sno = input.nextInt();
+                    System.out.println(studentDao.MixFindByPk(sno));
+
                     break;
                 default:
                     //Application shutdown

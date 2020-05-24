@@ -1,5 +1,6 @@
 package Dao;
 
+import Entity.MixPojo;
 import Entity.Student;
 
 import java.util.List;
@@ -20,4 +21,6 @@ public interface IStudentDao {
     List<Student> findStudent(String sname);
 
     int getTitalCount();
+
+    MixPojo MixFindByPk(Integer sno);
 }
