@@ -22,5 +22,5 @@ public interface IStudentDao {
 
     int getTitalCount();
 
-    MixPojo MixFindByPk(Integer sno);
+    List<MixPojo> MixFindByPk(Integer sno);
 }

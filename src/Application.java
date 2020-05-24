@@ -1,5 +1,6 @@
 import Dao.ManagerImpl;
 import Dao.StudentDaoImpl;
+import Entity.MixPojo;
 import Entity.Student;
 
 import java.util.Scanner;
@@ -123,7 +124,9 @@ public class Application {
                 case 7://模糊查询
                     System.out.println("输入要联合查询的学生学号");
                     Integer sno = input.nextInt();
-                    System.out.println(studentDao.MixFindByPk(sno));
+                    for(MixPojo mixPojo:studentDao.MixFindByPk(sno)){
+                        System.out.println(mixPojo);
+                    }
 
                     break;
                 default:

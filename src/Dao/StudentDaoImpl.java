@@ -146,17 +146,16 @@ public class StudentDaoImpl implements IStudentDao {
     }
 
     @Override
-    public MixPojo MixFindByPk(Integer sno) {
+    public List<MixPojo> MixFindByPk(Integer sno) {
         String sql = "select s.sno,s.sname,co.cname,sc.sco,sc.cno,te.tname " +
                 "from student s,score sc, teacher te,course co " +
                 "where s.sno=sc.sno and co.tno=te.tno and sc.cno=co.cno and s.sno=?";
         Object[]os = {sno};
-
-        ResultSet rs = JdbcUtil.executeQuery(sql,os);
-        MixPojo mixPojo = null;
-
+        List<MixPojo>mixPojos = new ArrayList<>();
+        //ResultSet rs = JdbcUtil.executeQuery(sql,os);
         try {
-            if (rs.next()) {
+            ResultSet rs = JdbcUtil.executeQuery(sql,os);
+            while (rs.next()) {
                 Integer Gsno = rs.getInt("sno");
                 String Gsname = rs.getString("sname");
                 /*String Gsex = rs.getString("sex");
@@ -166,13 +165,14 @@ public class StudentDaoImpl implements IStudentDao {
                 String cname = rs.getString("cname");
                 Integer sco = rs.getInt("sco");
                 String tname = rs.getString("tname");
-                mixPojo = new MixPojo(Gsno,Gsname,cno,cname,sco,tname);
+                MixPojo mixPojo = new MixPojo(Gsno,Gsname,cno,cname,sco,tname);
+                mixPojos.add(mixPojo);
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            mixPojo=null;
+
         }
-        return mixPojo;
+        return mixPojos;
 
     }
 }
