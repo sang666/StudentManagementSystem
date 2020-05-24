@@ -159,15 +159,14 @@ public class StudentDaoImpl implements IStudentDao {
             if (rs.next()) {
                 Integer Gsno = rs.getInt("sno");
                 String Gsname = rs.getString("sname");
-                String Gsex = rs.getString("sex");
+                /*String Gsex = rs.getString("sex");
                 String Gacademy = rs.getString("academy");
-                Integer Ggrade = rs.getInt("grade");
+                Integer Ggrade = rs.getInt("grade");*/
                 Integer cno = rs.getInt("cno");
                 String cname = rs.getString("cname");
                 Integer sco = rs.getInt("sco");
                 String tname = rs.getString("tname");
-
-                mixPojo = new MixPojo(Gsno,Gsname,Gsex,Gacademy,Ggrade,cno,cname,sco,tname);
+                mixPojo = new MixPojo(Gsno,Gsname,cno,cname,sco,tname);
             }
         } catch (SQLException e) {
             e.printStackTrace();
